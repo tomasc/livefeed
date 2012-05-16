@@ -5,28 +5,6 @@
 
 
 <body>
+    {{> new_post}}
     {{> posts}}
 </body>
-
-
-
-<template name="posts">
-    <div id="new-post-box">
-        <input type="text" id="new-post" placeholder="New post" />
-        <input type="button" class="submit" value="Send" />
-    </div>
-    
-    <ul id="posts">
-        {{#each posts}}
-            {{> post}}
-        {{/each}}
-    </ul>
-</template>
-
-
-
-<template name="post">
-    <li>
-        {{body}}
-    </li>
-</template>
