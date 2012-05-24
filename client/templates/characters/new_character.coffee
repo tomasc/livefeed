@@ -1,16 +1,14 @@
 Template.new_character.events = 
     
-    # listen to click on the new character input button
     "click input.submit": (e) ->
+        $this = $(e.target)
         
-        # store reference to the input field
-        $input = $('input#new-character')
+        $input = $this.siblings('input#new-character')
+        $feed_select = $this.siblings('select#feed_select')
         
-        # if any value entered
         if $input.val()
-            
-            # store it in the characters collection
-            Characters.insert { name: $input.val() }
-            
-            # reset the input field to an empty value
+            Characters.insert { 
+                name: $input.val() 
+                feed_id: $feed_select.val()
+            }
             $input.val('')

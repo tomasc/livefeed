@@ -1,8 +1,6 @@
 <template name="posts">
     <ul id="posts">
-        <!-- loop through all posts (this is the variable assigned in 'posts.coffee') -->
         {{#each posts}}
-            <!-- for each post, render a post template (post.html) -->
             {{> post}}
         {{/each}}
     </ul>

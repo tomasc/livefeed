@@ -1,18 +1,17 @@
-Template.new_post.events = 
+Template.new_post.events =
     
-    # listen to click on the new post input button
     "click input.submit": (e) ->
+        $this = $(e.target)
+
+        $input = $this.siblings('input#new-post')
+        $character_select = $this.siblings('select#character_select')
+        $feed_select = $this.siblings('select#feed_select')
         
-        # store reference to the input field
-        $input = $('input#new-post')
-        $select = $('select#character_select')
-        
-        # if any value entered
         if $input.val()
-            
-            # store it in the post collection, along with a timestamp 
-            # (so that we can later sort the posts)
-            Posts.insert { body: $input.val(), character_id: $select.val(), timestamp: (new Date()).getTime() }
-            
-            # reset the input field to an empty value
+            Posts.insert { 
+                body: $input.val(), 
+                character_id: $character_select.val(),
+                feed_id: $feed_select.val(), 
+                timestamp: (new Date()).getTime() 
+            }
             $input.val('')

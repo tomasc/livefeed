@@ -1,0 +1,10 @@
+<template name="characters_by_feeds">
+    <ul id="characters_by_feeds">
+        {{#each feeds}}
+            <li>
+                {{name}}
+                {{> characters_by_feed}}
+            </li>
+        {{/each}}
+    </ul>
+</template>

@@ -8,23 +8,29 @@
     
     <hr />
     
-    <p>Characters:</p>
+    <p>Posts by feed:</p>
     
-    <!-- character input field -->
-    {{> new_character}}
-    
-    <!-- list of characters -->
-    {{> characters}}
+    {{> posts_by_feeds}}
     
     <hr />
     
+    <p>Feeds:</p>
+    
+    {{> new_feed}}
+    {{> feeds}}
+    
+    <hr />
+    
+    <p>Characters:</p>
+    
+    {{> new_character}}
+    {{> characters_by_feeds}}
+    
+    <hr />
+        
     <p>Posts:</p>
     
-    <!-- post input field -->
     {{> new_post}}
-    
-    <!-- list of posts -->
-    {{> posts}}
     
     <hr />
     
