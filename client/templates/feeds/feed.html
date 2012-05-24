@@ -1,6 +1,14 @@
 <template name="feed">
     <li>
-        {{name}}
-        <input type="button" class="submit" id="{{_id}}" value="Delete" />
+        <a href="/feeds/{{_id}}">{{name}}</a>
+        <input type="button" id="delete-feed" id="{{_id}}" value="Delete" />
+        
+        {{> new_character}}
+        
+        <ul class='characters'>
+            {{#each characters}}
+                {{> character}}
+            {{/each}}
+        </ul>
     </li>
 </template>

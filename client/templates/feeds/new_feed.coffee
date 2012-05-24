@@ -1,8 +1,8 @@
 Template.new_feed.events = 
     
-    "click input.submit": (e) ->
+    "click input#new-feed[type=button]": (e) ->
         
-        $input = $('input#new-feed')
+        $input = $('input#feed-name')
         
         if $input.val()
             Feeds.insert { name: $input.val() }

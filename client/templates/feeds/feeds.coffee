@@ -1,2 +1,2 @@
 Template.feeds.feeds = ->
-    Feeds.find({}, { sort: { timestamp: -1 } })
+    Feeds.find({}, { sort: { name: 1 } })
