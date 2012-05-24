@@ -10,5 +10,6 @@ Template.new_character.events =
             Characters.insert { 
                 name: $input.val() 
                 feed_id: $feed_select.val()
+                key: $input.val().charAt(0).toLowerCase()
             }
             $input.val('')

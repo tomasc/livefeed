@@ -4,14 +4,20 @@ Template.new_post.events =
         $this = $(e.target)
 
         $input = $this.siblings('input#new-post')
-        $character_select = $this.siblings('select#character_select')
         $feed_select = $this.siblings('select#feed_select')
-        
-        if $input.val()
-            Posts.insert { 
-                body: $input.val(), 
-                character_id: $character_select.val(),
-                feed_id: $feed_select.val(), 
-                timestamp: (new Date()).getTime() 
-            }
-            $input.val('')
+
+        input_val = $input.val()
+
+        if input_val and input_val.match(/^(.\s)/i)
+            
+            character_key = input_val.charAt(0).toLowerCase()
+            character = Characters.findOne { key: character_key, feed_id: $feed_select.val() }
+            
+            if character
+                Posts.insert { 
+                    body: input_val.substr(2), 
+                    character_id: character._id,
+                    feed_id: $feed_select.val(), 
+                    timestamp: (new Date()).getTime() 
+                }
+                $input.val('')
