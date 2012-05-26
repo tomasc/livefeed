@@ -1,7 +1,8 @@
 Template.character.events = 
     "click input.submit": (e) ->
-        Characters.remove { _id: this._id }
-        Posts.remove { character_id: this._id }
+        if confirm('Are you sure?')
+            Characters.remove { _id: this._id }
+            Posts.remove { character_id: this._id }
 
 
         

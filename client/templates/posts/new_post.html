@@ -1,10 +1,36 @@
 <template name="new_post">
+    
     <p>
-        Type in one-letter key identificator of a character follow by the post body.
+        <span><a href='/feeds'>Index</a></span>
+        <span><a href='/feeds/edit'>Edit feeds</a></span>
     </p>
+    
+    <hr />
+
+    <p>
+        <span>{{feed_name}}</span>
+    </p>
+    
+    <p>
+        <span><a href='/feeds/{{feed_id}}'>View</a></span>
+        <span>Post</span>
+    </p>
+    
+    <hr />
+    
+    <p>Characters:</p>
+    
+    <ul class='characters'>
+        {{#each characters}}
+            <li>[ {{key}} ] {{name}}</li>
+        {{/each}}
+    </ul>
+    
+    <hr />
+    
     <div>
-        {{> feed_select}}
         <input type="text" id="new-post" placeholder="New post" />
         <input type="button" class="submit" value="Send" />
     </div>
+    
 </template>

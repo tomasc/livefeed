@@ -1,4 +1,12 @@
 <template name="feeds">
+    
+    <p>
+        <span>Index</span>
+        <span><a href='/feeds/edit'>Edit feeds</a></span>
+    </p>
+    
+    <hr />
+    
     <ul id="feeds">
         {{#each feeds}}
             {{> feed}}

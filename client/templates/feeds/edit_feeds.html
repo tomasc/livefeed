@@ -1,0 +1,19 @@
+<template name="edit_feeds">
+    
+    <p>
+        <span><a href='/feeds'>Index</a></span>
+        <span>Edit feeds</span>
+    </p>
+    
+    <hr />
+    
+    {{> new_feed}}
+    
+    <hr />
+    
+    <ul id="feeds">
+        {{#each feeds}}
+            {{> edit_feed}}
+        {{/each}}
+    </ul>
+</template>

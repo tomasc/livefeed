@@ -1,7 +1,29 @@
 <template name="posts">
-    <ul id="posts">
+    
+    <p>
+        <span><a href='/feeds'>Index</a></span>
+        <span><a href='/feeds/edit'>Edit feeds</a></span>
+    </p>
+    
+    <hr />
+    
+    <p>
+        <span>{{feed_name}}</span>
+    </p>
+    
+    <p>
+        <span>View</span>
+        <span><a href='/feeds/{{feed_id}}/new'>Post</a></span>
+    </p>
+        
+    <hr />
+    
+    <table class="posts">
         {{#each posts}}
-            {{> post}}
+            <tr>
+                {{> post}}
+            </tr>
         {{/each}}
-    </ul>
+    </table>
+    
 </template>
