@@ -10,3 +10,5 @@ Template.character.feed_name = ->
     feed = Feeds.findOne { _id: this.feed_id }
     feed.name if feed
     
+Template.character.has_posts = ->
+    Posts.find({character_id: this._id}).count() > 0

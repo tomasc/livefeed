@@ -11,3 +11,6 @@ Template.edit_feed.posts = ->
     
 Template.edit_feed.characters = ->
     Characters.find({ feed_id: this._id }, { sort: { name: 1 } })
+    
+Template.edit_feed.has_posts = ->
+    Posts.find({feed_id: this._id}).count() > 0
