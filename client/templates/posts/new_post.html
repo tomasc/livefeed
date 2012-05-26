@@ -26,11 +26,18 @@
         {{/each}}
     </ul>
     
+    <div id='character_post'>
+        {{> new_character_post}}
+    </div>
+    
     <hr />
     
-    <div>
-        <input type="text" id="new-post" placeholder="New post" />
-        <input type="button" class="submit" value="Send" />
+    <p>Context:</p>
+    
+    <div id='context_post'>
+        {{> new_context_post}}
     </div>
+    
+    <hr />
     
 </template>

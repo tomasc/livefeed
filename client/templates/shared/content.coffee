@@ -15,3 +15,6 @@ Template.content.routed_template = () ->
             id = document.location.href.match(/\/feeds\/(.{36})\/new$/i)[1]
             if id
                 Template.new_post { feed_id: id }
+                
+        else
+            Template.feeds()

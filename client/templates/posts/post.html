@@ -1,4 +1,19 @@
 <template name="post">
-    <td>{{character_name}}:</td>
-    <td>{{body}}</td>
+    <td class='w33'>
+        {{timestamp_date}}
+        {{timestamp_time}}
+    </td>
+
+    {{#if character_name}}
+        <td class='character'>
+            {{character_name}}:
+            {{body}}
+        </td>
+        <td class='context'>&nbsp;</td>
+    {{else}}
+        <td class='character'>&nbsp;</td>
+        <td class='context'>
+            {{body}}
+        </td>
+    {{/if}}
 </template>
