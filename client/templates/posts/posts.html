@@ -18,11 +18,22 @@
         
     <hr />
     
+    <p>Cast:</p>
+    
+    <ol>
+        {{#each characters}}
+            <li>{{name}}</li>
+        {{/each}}
+    </ol>
+    
+    <hr />
+    
     <table class="posts">
         <tr>
             <th class='date_time'>DATE / TIME</td>
-            <th class='character'>CHARACTER</td>
-            <th class='context'>CONTEXT</td>
+            <th class='cast'>CAST</td>
+            <th class='situation'>SITUATION</td>
+            <th class='opinion'>OPINION</td>
         </tr>
         {{#each posts}}
             <tr>

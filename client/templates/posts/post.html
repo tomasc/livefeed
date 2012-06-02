@@ -4,16 +4,8 @@
         {{timestamp_time}}
     </td>
 
-    {{#if character_name}}
-        <td class='character'>
-            {{character_name}}:
-            {{body}}
-        </td>
-        <td class='context'>&nbsp;</td>
-    {{else}}
-        <td class='character'>&nbsp;</td>
-        <td class='context'>
-            {{body}}
-        </td>
-    {{/if}}
+    <td class='{{post_type}}'>
+        {{character_name}}:
+        {{body}}
+    </td>
 </template>
