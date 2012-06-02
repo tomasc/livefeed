@@ -1,6 +1,24 @@
 <template name="feed">
-    <li>
-        <span><a href="/feeds/{{_id}}">{{name}}</a></span>
-        <span>{{number_of_posts}} posts</span>   
-    </li>
+
+    <tr>
+        <td class='situation'>
+            <a href="/feeds/{{_id}}">{{name}}</a>
+        </td>
+
+        <td class='time'>
+            <div class='date_time'>
+                <span class='date'>{{date_string}}</span>
+                <span class='time'>{{time_string}}</span>
+            </div>
+        </td>
+
+        <td class='cast'>
+            <ul class='characters'>
+                {{#each characters}}
+                    <li>{{name}}</li>
+                {{/each}}
+            </ul>
+        </td>
+    </tr>
+
 </template>

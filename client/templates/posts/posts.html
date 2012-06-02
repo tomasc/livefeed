@@ -1,45 +1,42 @@
 <template name="posts">
-    
-    <p>
-        <span><a href='/feeds'>Index</a></span>
-        <span><a href='/feeds/edit'>Edit feeds</a></span>
-    </p>
-    
-    <hr />
-    
-    <p>
-        <span>{{feed_name}}</span>
-    </p>
-    
-    <p>
-        <span>View</span>
-        <span><a href='/feeds/{{feed_id}}/new'>Post</a></span>
-    </p>
+
+    <div id="posts">
         
-    <hr />
-    
-    <p>Cast:</p>
-    
-    <ol>
-        {{#each characters}}
-            <li>{{name}}</li>
-        {{/each}}
-    </ol>
-    
-    <hr />
-    
-    <table class="posts">
-        <tr>
-            <th class='date_time'>DATE / TIME</td>
-            <th class='cast'>CAST</td>
-            <th class='situation'>SITUATION</td>
-            <th class='opinion'>OPINION</td>
-        </tr>
-        {{#each posts}}
-            <tr>
+        <div id="info">
+            <p><span class='name'>{{feed_name}}</span></p>
+            
+            <p><span class='date'>{{date_string}}</span> <span class='time'>{{time_string}}</span></p>
+            
+            <ul id='characters'>
+                {{#each characters}}
+                    <li>{{name}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        
+        <ol id="situation" class='posts'>
+            {{#each situation_posts}}
                 {{> post}}
-            </tr>
-        {{/each}}
-    </table>
+            {{/each}}
+        </ol>
+        
+        <ol id="cast" class='posts'>
+            {{#each cast_posts}}
+                {{> post}}
+            {{/each}}
+        </ol>
+        
+        <ol id="opinion" class='posts'>
+            {{#each opinion_posts}}
+                {{> post}}
+            {{/each}}
+        </ol>
+    
+    </div>
+    
+    <div id='situation' class='label'>Situation</div>
+    <div id='cast' class='label'>Cast</div>
+    <div id='opinion' class='label'>Opinion</div>
+    <div id='back' class='label'><a href='/'>Back</a></div>
     
 </template>

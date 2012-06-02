@@ -1,67 +1,66 @@
 <template name="new_post">
     
-    <p>
-        <span><a href='/feeds'>Index</a></span>
-        <span><a href='/feeds/edit'>Edit feeds</a></span>
-    </p>
+    <div id="new_post">
+        <p>
+            <span><a href='/feeds/{{feed_id}}'>Back</a></span>
+        </p>
     
-    <hr />
+        <hr />
 
-    <p>
-        <span>{{feed_name}}</span>
-    </p>
+        <p>
+            <span class='name'>{{feed_name}}</span>
+        </p>
     
-    <p>
-        <span><a href='/feeds/{{feed_id}}'>View</a></span>
-        <span>Post</span>
-    </p>
+        <hr />
     
-    <hr />
+        <p>
+            Starts on: {{date_string}} {{time_string}}
+        </p>
     
-    <p>Cast:</p>
+        <hr />
     
-    <ul class='characters'>
-        {{#each characters}}
-            <li>[ {{key}} ] {{name}}</li>
-        {{/each}}
-    </ul>
+        <ul id='characters'>
+            {{#each characters}}
+                <li>[ {{key}} ] {{name}}</li>
+            {{/each}}
+        </ul>
     
-    <hr />
+        <hr />
+    
+        <div id='situation_post'>
+            <p>Situation:</p>
+        
+            <p class='last_post'>Last post: {{#last_post_situation}}{{/last_post_situation}}</p>
+        
+            <textarea rows="8" cols="40" id="situation" placeholder="New situation post"></textarea>
+            <br />
+            <input type="button" class="submit" value="Send" />
+        </div>
+    
+        <hr />
 
-    <div id='character_post'>
-        <p>Character:</p>
+        <div id='character_post'>
+            <p>Cast:</p>
         
-        <div class='last_post'>{{#last_post_character}}{{/last_post_character}}</div>
+            <p class='last_post'>Last post: {{#last_post_character}}{{/last_post_character}}</p>
         
-        <textarea rows="8" cols="40" id="character" placeholder="New character post"></textarea>
-        <br />
-        <input type="button" class="submit" value="Send" />
+            <textarea rows="8" cols="40" id="character" placeholder="New character post"></textarea>
+            <br />
+            <input type="button" class="submit" value="Send" />
+        </div>
+    
+        <hr />
+    
+        <div id='opinion_post'>
+            <p>Opinion:</p>
+        
+            <p class='last_post'>Last post: {{#last_post_opinion}}{{/last_post_opinion}}</p>
+        
+            <textarea rows="8" cols="40" id="opinion" placeholder="New situation post"></textarea>
+            <br />
+            <input type="button" class="submit" value="Send" />
+        </div>
+    
     </div>
-    
-    <hr />
-    
-    <div id='situation_post'>
-        <p>Situation:</p>
-        
-        <div class='last_post'>{{#last_post_situation}}{{/last_post_situation}}</div>
-        
-        <textarea rows="8" cols="40" id="situation" placeholder="New situation post"></textarea>
-        <br />
-        <input type="button" class="submit" value="Send" />
-    </div>
-    
-    <hr />
-    
-    <div id='opinion_post'>
-        <p>Opinion:</p>
-        
-        <div class='last_post'>{{#last_post_opinion}}{{/last_post_opinion}}</div>
-        
-        <textarea rows="8" cols="40" id="opinion" placeholder="New situation post"></textarea>
-        <br />
-        <input type="button" class="submit" value="Send" />
-    </div>
-    
-    <hr />
     
 </template>

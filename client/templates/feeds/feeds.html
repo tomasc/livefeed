@@ -1,15 +1,15 @@
 <template name="feeds">
     
-    <p>
-        <span>Index</span>
-        <span><a href='/feeds/edit'>Edit feeds</a></span>
-    </p>
-    
-    <hr />
-    
-    <ul id="feeds">
+    <table id="feeds">
+        <tr>
+            <th class='situation'>Situation</th>
+            <th class='time'>Time</th>
+            <th class='cast'>Cast</th>
+        </tr>
+        
         {{#each feeds}}
             {{> feed}}
         {{/each}}
-    </ul>
+    </table>
+
 </template>

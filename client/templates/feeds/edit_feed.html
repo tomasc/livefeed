@@ -1,14 +1,36 @@
 <template name="edit_feed">
-    <li>
-        <a href="/feeds/{{_id}}">{{name}}</a>
-        <input type="button" id="delete-feed" id="{{_id}}" value="Delete" />
+
+    <tr>
+        <td class='situation'>
+            <p>
+                <input type="text" id="feed_name" value="{{name}}" />
+                <input type="button" id="update-name" value="Update name" />
+            </p>
+            <p>
+                <a href="/feeds/{{_id}}">Go to feed</a>
+            </p>
+            <p>
+                <input type="button" id="delete-feed" id="{{_id}}" value="Delete feed" class='delete' />
+            </p>
+        </td>
         
-        {{> new_character}}
+        <td class='time'>
+            <div>
+                <input type="datetime" id="date_time" value="{{date_time_string}}" />
+                <input type="button" id="update-date_time" value="Update time" />
+            </div>
+        </td>
         
-        <ul class='characters'>
-            {{#each characters}}
-                {{> character}}
-            {{/each}}
-        </ul>
-    </li>
+        <td class='cast'>
+        
+            <ul class='characters'>
+                {{#each characters}}
+                    {{> character}}
+                {{/each}}
+            </ul>
+            
+            {{> new_character}}
+        </td>
+    </tr>
+    
 </template>

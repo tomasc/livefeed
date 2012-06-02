@@ -1,11 +1,18 @@
 <template name="post">
-    <td class='date_time'>
-        {{timestamp_date}}
-        {{timestamp_time}}
-    </td>
+    <li>
+        <!-- <span class='date_time'>
+            {{timestamp_date}}
+            {{timestamp_time}}
+        </span> -->
 
-    <td class='{{post_type}}'>
-        {{character_name}}:
-        {{body}}
-    </td>
+        {{#if character_name}}
+            <span class='character_name'>
+                {{character_name}}:
+            </span>
+        {{/if}}
+        
+        <span class='body'>
+            {{body}}
+        </span>
+    </li>
 </template>

@@ -1,21 +1,152 @@
+@import '/normalize.css'
+
+/* apply a natural box layout model to all elements */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
 body
     color blue
     font-family arial, helvetica
-    margin 10px
-
-ol, ul
+    font-size 21px
+    line-height 24px
+    margin 1em
+    
+a
+    color blue
+    text-decoration none
+    border-bottom 1px solid
+    
+p
+    margin 0
     margin-bottom 1em
     
-span
-    margin-right 20px
+hr
+    border 0
+    border-bottom 1px solid
+    margin 0
+    margin-top 1em
+    margin-bottom 1em
+
+
+
+input.delete
+    color red
+
+
+                
+.label
+    position fixed
+    text-align center
+    width 33%
+    text-transform uppercase
     
-table
+.label#opinion
+    bottom 1em
+    width 100%
+    
+.label#cast
+    top 1em
+    right 1em
+
+.label#back
+    text-align left
+    text-transform none
+    top 1em
+    left 1em
+
+
+table#feeds
     width 100%
     tr
-        td
-            padding-right 10px
+        vertical-align top
+        
+    th, td
+        width 33%
+        text-align center
+        font-weight normal
+        padding-bottom 1em
+    
+    th
+        text-transform uppercase
+    
+    td.situation
+        text-transform uppercase
+    
+    td.cast
+        ul
+            margin 0
+            padding 0
+            list-style none
+            li
+                margin 0
+                padding 0
+                
+table#feeds.edit
+    td
+        text-align left
+        padding-top 1em
+        border-bottom 1px solid
+        
+    td.cast
+        ul
+            margin-bottom 1em
+
+
+div#posts
+    div#info
+        position fixed
+        width 33%
+        text-align center
+        left 33%
+        top 50%
+        margin-top -80px
+        
+        span.name
+            text-transform uppercase
+        
+        ul#characters
+            list-style none
+            margin 0
+            padding 0
             
-        td.date_time
-        td.character
-        td.context
-            width 33%
+    ol.posts
+        position fixed
+        margin 0
+        padding 1em
+        list-style none
+        overflow auto
+        li
+            margin-bottom 0.5em
+            span.character_name
+                font-weight bold
+        
+    ol.posts#situation
+        top 0
+        left 0
+        padding-top 3em
+        width 33%
+        height 65%
+        
+    ol.posts#cast
+        top 0
+        right 0
+        padding-top 3em
+        width 33%
+        height 65%
+        
+    ol.posts#opinion
+        bottom 0
+        left 0
+        width 100%
+        height 35%
+            
+div#new_post
+    ul#characters
+        margin 0
+        padding 0
+        list-style none
+        
+    span.name
+        text-transform uppercase
+        
+    p.last_post
+        color #999

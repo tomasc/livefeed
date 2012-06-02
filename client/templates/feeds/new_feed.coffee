@@ -5,6 +5,6 @@ Template.new_feed.events =
         $input = $('input#feed-name')
         
         if $input.val()
-            Feeds.insert { name: $input.val() }
+            Feeds.insert { name: $input.val(), date_time: (new Date()).getTime() }
             $input.val('')
             
