@@ -71,12 +71,6 @@ Template.posts.has_prev = () ->
 
 
 
-Template.posts.date_string = () ->
-    feed = Feeds.findOne(this.feed_id)
-    format_date(feed.date_time) if feed
-
-
-
 Template.posts.time_string = () ->    
     posts = Posts.find({ feed_id: this.feed_id }, { sort: { timestamp: -1 } }).fetch()
     if posts.length > 0
