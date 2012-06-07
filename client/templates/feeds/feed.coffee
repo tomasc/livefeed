@@ -12,11 +12,12 @@ Template.feed.characters = () ->
 
 
 Template.feed.time = () ->
-    first_post = Posts.findOne({ feed_id: this._id }, { sort: { timestamp: -1 } })
+    # first_post = Posts.findOne({ feed_id: this._id }, { sort: { timestamp: -1 } })
     last_post = Posts.findOne({ feed_id: this._id }, { sort: { timestamp: 1 } })
     
-    if first_post && last_post
-        d1 = new Date(first_post.timestamp)
+    if last_post
+        # d1 = new Date(first_post.timestamp)
+        d1 = new Date(this.date_time)
         d2 = new Date(last_post.timestamp)
     
         diff = new Date(d1 - d2)
