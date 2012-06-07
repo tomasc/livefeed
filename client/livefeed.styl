@@ -49,22 +49,26 @@ input.delete
 
                 
 .label
+    font-family 'Monospace821BTRoman'
+    letter-spacing -1px
+    font-size 30px
+    line-height 30px
     position fixed
     text-align center
     width 33%
     text-transform uppercase
     
 .label#opinion
+    left 0
     bottom 1em
     width 100%
     
 .label#cast
     top 1em
-    right 1em
+    right 21px
 
-.label#back
-    text-align left
-    text-transform none
+#back
+    position fixed
     top 1em
     left 1em
 
@@ -150,30 +154,60 @@ div#posts
         padding 1em
         list-style none
         overflow auto
-        li
-            margin-bottom 0.5em
-            span.character_name
-                font-weight bold
         
     ol.posts#situation
+        font-family courier, monospace
+        color blue
         top 0
         left 0
-        padding-top 3em
+        font-size 16px
+        line-height 16px
+        padding-top 90px
         width 33%
         height 65%
         
     ol.posts#cast
         top 0
         right 0
-        padding-top 3em
+        padding-top 90px
         width 33%
         height 65%
+        color blue
+        text-align center
+        span.character_name
+            display block
+            font-family 'Monospace821BTRoman', monospace
+            letter-spacing -1px
+            font-size 30px
+            line-height 30px
+            text-transform uppercase
+            color black
+            
+        span.body
+            font-family times, serif
+            font-style italic
+            font-size 30px
+            line-height 30px
+            display block
+            margin-bottom 1em
+            &:before
+                content '“'
+            &:after
+                content '”'
         
     ol.posts#opinion
+        color blue
         bottom 0
         left 0
         width 100%
         height 35%
+        span.character_name
+            font-family 'Monospace821BTRoman', monospace
+            letter-spacing -1px
+            font-size 30px
+            line-height 30px
+            text-transform uppercase
+            color black
             
 div#new_post
     ul#characters
