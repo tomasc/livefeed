@@ -3,7 +3,20 @@
     <div id="posts">
         
         <div id="info">
-            <p><span class='date'>{{date_string}}</span> <span class='time'>{{time_string}}</span></p>
+            <div>{{date_string}}</div>
+            <div>
+                &nbsp;
+                {{#if has_prev}}
+                    <a href='#' id='prev'>&uarr;</a>
+                {{/if}}
+            </div>
+            <div>{{time_string}}</div>
+            <div>
+                &nbsp;
+                {{#if has_next}}
+                    <a href='#' id='next'>&darr;</a>
+                {{/if}}
+            </div>
         </div>
         
         <ol id="situation" class='posts'>

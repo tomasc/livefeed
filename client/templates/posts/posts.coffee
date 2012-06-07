@@ -1,47 +1,84 @@
+Session.set 'counter', 0
+
+
+
+Template.posts.events =
+    "click a#prev": (e) ->
+        e.preventDefault()
+        counter = Session.get 'counter'
+        Session.set 'counter', counter+1
+        
+    "click a#next": (e) ->
+        e.preventDefault()
+        counter = Session.get 'counter'
+        Session.set 'counter', counter-1
+
+
+
 Template.posts.posts = ->
     Posts.find({ feed_id: this.feed_id }, { sort: { timestamp: 1 } })
+
+
     
 Template.posts.feed_name = () ->
     feed = Feeds.findOne(this.feed_id)
     feed.name if feed
 
+
+
 Template.posts.characters = () ->
     Characters.find({ feed_id: this.feed_id }, { sort: { name: 1 } })
     
+    
+    
 Template.posts.situation_posts = () ->
-    Posts.find({ feed_id: this.feed_id, post_type: 'situation' }, { sort: { timestamp: -1 } })
+    posts = Posts.find({ feed_id: this.feed_id }, { sort: { timestamp: -1 } }).fetch()
+    if posts.length > 0
+        counter = Session.get('counter')
+        _.filter group_by_minute(posts)[counter][1], (p) ->
+            p.post_type == 'situation'
+        
+    
+    
     
 Template.posts.cast_posts = () ->
-    Posts.find({ feed_id: this.feed_id, post_type: 'character' }, { sort: { timestamp: -1 } })
+    posts = Posts.find({ feed_id: this.feed_id }, { sort: { timestamp: -1 } }).fetch()
+    if posts.length > 0
+        counter = Session.get('counter')
+        _.filter group_by_minute(posts)[counter][1], (p) ->
+            p.post_type == 'character'
+    
+    
     
 Template.posts.opinion_posts = () ->
-    Posts.find({ feed_id: this.feed_id, post_type: 'opinion' }, { sort: { timestamp: -1 } })
+    posts = Posts.find({ feed_id: this.feed_id }, { sort: { timestamp: -1 } }).fetch()
+    if posts.length > 0
+        counter = Session.get('counter')
+        _.filter group_by_minute(posts)[counter][1], (p) ->
+            p.post_type == 'opinion'
+
+
+
+Template.posts.has_next = () ->
+    counter = Session.get('counter')
+    counter > 0
     
-    
+Template.posts.has_prev = () ->
+    posts = Posts.find({ feed_id: this.feed_id }, { sort: { timestamp: -1 } }).fetch()
+    if posts.length > 0
+        counter = Session.get('counter')
+        counter < group_by_minute(posts).length-1
+
+
+
 Template.posts.date_string = () ->
     feed = Feeds.findOne(this.feed_id)
+    format_date(feed.date_time) if feed
 
-    if feed
-        d = new Date(feed.date_time)
 
-        day = d.getDate().toString()
-        day = "0#{day}" if day.length == 1
 
-        month = d.getMonth().toString()
-        month = "0#{month}" if month.length == 1
-
-        "#{day}/#{month}/#{d.getFullYear()}"
-
-Template.posts.time_string = () ->
-    feed = Feeds.findOne(this.feed_id)
-
-    if feed
-        d = new Date(feed.date_time)
-
-        h = d.getHours().toString()
-        h = "0#{h}" if h.length == 1
-
-        min = d.getMinutes().toString()
-        min = "0#{min}" if min.length == 1
-
-        "#{h}:#{min}"
+Template.posts.time_string = () ->    
+    posts = Posts.find({ feed_id: this.feed_id }, { sort: { timestamp: -1 } }).fetch()
+    if posts.length > 0
+        counter = Session.get('counter')
+        group_by_minute(posts)[counter][0]
