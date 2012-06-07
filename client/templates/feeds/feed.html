@@ -9,9 +9,12 @@
         </td>
 
         <td class='time'>
-            <!-- <div class='time'>{{time_string}}</div> -->
             <div class='date'>{{date_string}}</div>
-            <div class='time'>{{time}}</div>
+            {{#if time}}
+                <div class='time elapsed'>{{time}}</div>
+            {{else}}
+                <div class='time'>starts at {{time_string}}</div>
+            {{/if}}
         </td>
 
         <td class='cast'>
