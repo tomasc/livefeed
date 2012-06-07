@@ -2,14 +2,16 @@
 
     <tr>
         <td class='situation'>
-            <a href="/feeds/{{_id}}" class='feed_name'>{{name}}</a>
+            <div class='name'><a href="/feeds/{{_id}}" class='feed_name'>{{name}}</a></div>
+            {{#if authors}}
+                <div class='authors'>by {{authors}}</div>
+            {{/if}}
         </td>
 
         <td class='time'>
-            <div class='date_time'>
-                <span class='date'>{{date_string}}</span>
-                <span class='time'>{{time_string}}</span>
-            </div>
+            <!-- <div class='time'>{{time_string}}</div> -->
+            <div class='date'>{{date_string}}</div>
+            <div class='time'>{{time}}</div>
         </td>
 
         <td class='cast'>

@@ -5,13 +5,21 @@ Template.edit_feed.events =
             Posts.remove { feed_id: this._id }
             Characters.remove { feed_id: this._id }
             
-    "click input#update-feed": (e) ->
+    "click input#update-name": (e) ->
         $this = $(e.target)
         $input = $this.siblings('#feed_name')
         
         input_val = $input.val()
         if input_val
             Feeds.update({ _id: this._id }, { $set: {name: input_val} })
+            
+    "click input#update-authors": (e) ->
+        $this = $(e.target)
+        $input = $this.siblings('#feed_authors')
+
+        input_val = $input.val()
+        if input_val
+            Feeds.update({ _id: this._id }, { $set: {authors: input_val} })
             
     "click input#update-date_time": (e) ->
         $this = $(e.target)
