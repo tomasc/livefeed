@@ -3,18 +3,12 @@
     <div id="posts">
         
         <div id="info">
-            <p><span class='name'>{{feed_name}}</span></p>
-            
             <p><span class='date'>{{date_string}}</span> <span class='time'>{{time_string}}</span></p>
-            
-            <ul id='characters'>
-                {{#each characters}}
-                    <li>{{name}}</li>
-                {{/each}}
-            </ul>
         </div>
         
         <ol id="situation" class='posts'>
+            <div class='name'>{{feed_name}}</div>
+            
             {{#each situation_posts}}
                 {{> post}}
             {{/each}}
