@@ -78,6 +78,12 @@ table#feeds
     tr
         vertical-align top
         
+    tr.feed
+        -moz-user-select none
+        -khtml-user-select none
+        user-select none
+        cursor pointer
+        
     th, td
         width 33%
         text-align center
@@ -89,6 +95,9 @@ table#feeds
     
     th
         text-transform uppercase
+    
+    td
+        padding-bottom 2em
     
     td.situation
         text-transform uppercase
@@ -138,7 +147,25 @@ div#posts
         text-align center
         left 33%
         top 50%
-        margin-top -80px
+        margin-top -170px
+        // background-color yellow
+        -moz-user-select none
+        -khtml-user-select none
+        user-select none
+        
+        div.nav
+            font-family 'Monospace821BTRoman'
+            letter-spacing -1px
+            font-size 30px
+            line-height 30px
+            margin-top 1em
+            margin-bottom 1em
+            cursor pointer
+        
+        div.time
+            font-family helvetica, arial
+            font-size 144px
+            line-height 122px
         
         span.name
             text-transform uppercase
@@ -169,6 +196,7 @@ div#posts
             margin-bottom 16px
         
         div.name
+        div.date
             font-family 'Monospace821BTRoman', monospace
             letter-spacing -1px
             font-size 30px
@@ -176,6 +204,8 @@ div#posts
             text-transform uppercase
             color black
             text-align center
+            
+        div.date
             margin-bottom 1em
             
         

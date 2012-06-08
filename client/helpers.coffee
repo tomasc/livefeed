@@ -1,7 +1,7 @@
 # returns String
 format_date = (timestamp) ->
     d = new Date(timestamp)
-    d.toString('dd/MM/yyyy')
+    d.toString('d/M/yy')
     
 # returns String
 format_time = (timestamp) ->
@@ -20,7 +20,7 @@ group_by_minute = (posts) ->
         timestamp = p.timestamp
         if timestamp
             d = new Date(timestamp)
-            d.toString('dd/MM/yyyy HH:mm')
+            d.toString('M/d/yy HH:mm')
 
     _.map grouped_posts, (p, i) ->
         [i, p]

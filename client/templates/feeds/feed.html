@@ -1,8 +1,8 @@
 <template name="feed">
 
-    <tr>
+    <tr class='feed' data-feed-id="{{_id}}">
         <td class='situation'>
-            <div class='name'><a href="/feeds/{{_id}}" class='feed_name'>{{name}}</a></div>
+            <div class='name'>{{name}}</div>
             {{#if authors}}
                 <div class='authors'>by {{authors}}</div>
             {{/if}}

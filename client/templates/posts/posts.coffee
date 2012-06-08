@@ -3,12 +3,12 @@ Session.set 'counter', 0
 
 
 Template.posts.events =
-    "click a#prev": (e) ->
+    "click div.nav.prev": (e) ->
         e.preventDefault()
         counter = Session.get 'counter'
         Session.set 'counter', counter+1
         
-    "click a#next": (e) ->
+    "click div.nav.next": (e) ->
         e.preventDefault()
         counter = Session.get 'counter'
         Session.set 'counter', counter-1
@@ -23,6 +23,10 @@ Template.posts.posts = ->
 Template.posts.feed_name = () ->
     feed = Feeds.findOne(this.feed_id)
     feed.name if feed
+    
+Template.posts.feed_date = () ->
+    feed = Feeds.findOne(this.feed_id)
+    format_date(feed.date_time) if feed
 
 
 
@@ -75,4 +79,4 @@ Template.posts.time_string = () ->
     posts = Posts.find({ feed_id: this.feed_id }, { sort: { timestamp: -1 } }).fetch()
     if posts.length > 0
         counter = Session.get('counter')
-        group_by_minute(posts)[counter][0]
+        group_by_minute(posts)[counter][0].substr(6)

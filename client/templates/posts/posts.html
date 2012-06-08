@@ -3,23 +3,24 @@
     <div id="posts">
         
         <div id="info">
-            <div>
+            <div class='nav prev'>
                 &nbsp;
                 {{#if has_prev}}
-                    <a href='#' id='prev'>&uarr;</a>
+                    &uarr;
                 {{/if}}
             </div>
-            <div>{{time_string}}</div>
-            <div>
+            <div class='time'>{{time_string}}</div>
+            <div class='nav prev'>
                 &nbsp;
                 {{#if has_next}}
-                    <a href='#' id='next'>&darr;</a>
+                    &darr;
                 {{/if}}
             </div>
         </div>
         
         <ol id="situation" class='posts'>
             <div class='name'>{{feed_name}}</div>
+            <div class='date'>{{feed_date}}</div>
             
             {{#each situation_posts}}
                 {{> post}}
@@ -43,6 +44,6 @@
     <div id='situation' class='label'>Situation</div>
     <div id='cast' class='label'>Cast</div>
     <div id='opinion' class='label'>Opinion</div>
-    <div id='back'><a href='/'>Back</a></div>
+    <div id='back'><a href='/'>&hellip;</a></div>
     
 </template>

@@ -1,4 +1,14 @@
-
+Template.feed.events =
+    "click tr.feed": (e) ->
+        e.preventDefault()
+        $tr = $(e.currentTarget)
+        feed_id = $tr.data('feed-id')
+        document.location.href = "/feeds/#{feed_id}"
+        
+    "click div.nav.next": (e) ->
+        e.preventDefault()
+        counter = Session.get 'counter'
+        Session.set 'counter', counter-1
 
 
 Template.feed.number_of_posts = ->
@@ -33,25 +43,7 @@ Template.feed.time = () ->
 
 
 Template.feed.date_string = () ->
-    d = new Date(this.date_time)
-    
-    day = d.getDate().toString()
-    # day = "0#{day}" if day.length == 1
-    
-    month = d.getMonth().toString()
-    # month = "0#{month}" if month.length == 1
-    
-    "#{day}/#{month}/#{d.getFullYear().toString().substr(2)}"
-
-
+    format_date(this.date_time)
     
 Template.feed.time_string = () ->
-    d = new Date(this.date_time)
-
-    h = d.getHours().toString()
-    h = "0#{h}" if h.length == 1
-    
-    min = d.getMinutes().toString()
-    min = "0#{min}" if min.length == 1
-
-    "#{h}:#{min}"
+    format_time(this.date_time)
