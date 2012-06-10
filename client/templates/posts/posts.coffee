@@ -79,4 +79,4 @@ Template.posts.time_string = () ->
     posts = Posts.find({ feed_id: this.feed_id }, { sort: { timestamp: -1 } }).fetch()
     if posts.length > 0
         counter = Session.get('counter')
-        group_by_minute(posts)[counter][0].substr(6)
+        group_by_minute(posts)[counter][0].split(' ')[1]
